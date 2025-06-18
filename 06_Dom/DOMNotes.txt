@@ -1,0 +1,131 @@
+1. When we have to get element and change the some text and also we can add some styles in that tags we can use "getElementById" method
+
+for example:
+document.getElementById('title')
+
+
+//2. now we want tochange the id name title by test we can simple:
+
+document.getElementById.id('test')
+
+//3. we can also use the "getAttribute" method to get the attribute.
+
+document.getAttribute('id')
+
+same we can use "setAttribute" to set the attribute
+document.setAttribute('id')
+
+//4. we can also give the style: 
+
+title.style.background-color = "green"
+title.style.padding = "15px"
+
+
+//5. Now we can see how we can extract the content using some tags:
+
+1. textContent: title.textContent
+2. innerHTML: title.innerHTML
+3. innerText: title.innerText
+
+Diffrence between innerText and textContent:
+innerText: In that tag we can see only the visible text.
+textContent: In that tag we can see the visible text but also we can see the non-visible text.
+             we can hide them using the span tag like display:none
+innerHTML: In that tag we can see the HTML also.
+
+
+// 6. Now we can see the Selector.
+
+(a) querySelector
+i. document.querySelector('input[type="password"]')
+ii. document.querySelector.innerText = "li"
+
+(b) querySelectorAll
+
+i. document.querySelectorAll('li')
+ olp:- NodeList(3) [li, li, li]
+ii. const tempLiList = document.querySelectorAll('li')
+olp:- undefined
+iii. tempLiList
+olp:- NodeList(3) [li, li, li]
+iv. tempLiList[0].style.color  ="pink"
+olp:- 'pink'
+
+//NodeList(3) [li, li, li]
+the above us not the array so we can use the foreach for this:
+
+const tempLiList = document.querySelectorAll('li')
+
+tempLiList.foreach(function (l) {
+    l.style.background-color  = "white"
+})
+
+NOTE: Whenever we see NodeList we can use "foreach" 
+
+(C) getElementByClassName:
+i. document.getElementsByClassName('list-item')
+olp:- HTMLCollection(4) [li.list-item, li.list-item, li.list-item, li.list-item]
+ii. const tempClassList = document.getElementsByClassName('list-item')
+olp:- undefined
+iii. tempClassList
+olp:-  HTMLCollection(4) [li.list-item, li.list-item, li.list-item, li.list-item]
+iv. Array.from(tempClassList)
+olp:-  (4) [li.list-item, li.list-item, li.list-item, li.list-item]
+v. const myConvertedArray  = Array.from(tempClassList)
+olp:-  undefined
+vi. tempClassList
+olp:- HTMLCollection(4) [li.list-item, li.list-item, li.list-item, li.list-item]
+vii. myConvertedArray.forEach(function (li){
+    li.style.color = "orange"
+})
+olp:-  undefined
+
+
+document.querySelectorAll('h3')
+
+const allH2 = document.querySelectorAll('h3')
+
+allH2[0].innerText
+
+document.querySelectorAll('.mw-heading mw-heading2')
+
+document.querySelectorAll('.mw-heading')
+
+const muheading  = document.querySelectorAll('.mw-heading')
+
+muheading[0].innerText
+
+muheading.forEach(function (h){
+    h.style.color = "red"
+})
+
+muheading.forEach(function (h){
+    h.style.color = "black"
+})
+
+muheading.forEach(function (h){
+    h.style.color = "black";
+    h.style.backgroundColor = "green";
+    h.style.padding = "10px";
+    h.innerText = "Arman"
+})
+
+NOte: we can enter inside the curly braces using "Shift + enter"
+
+// Create element
+
+when we create a element we can use "createElement" method
+
+simply: 1. we can createElement like "div"
+        2. then we can hold them in one variable like "div"
+        3. then we can give there className like whatever you want
+        4. as same we can give them id using the random method
+        5. and then we can set the atrribute using "setAttribute" method
+        6. we can also add the styles 
+        7. then we can append them first we can createtextNode and hold them in one variable
+        8. using the privious variable name "div" and use appendChild to append the existing variable name.
+
+
+
+// 7. Edit and remove DOM elements
+

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM Learning All DOM Selector</title>
+    <style>
+      .bg-green {
+        background-color: #212121;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body class="bg-green"></body>
+  <script>
+    const div = document.createElement("div");
+    console.log(div);
+    div.className = "main";
+    div.id = Math.round(Math.random() * 10 + 1);
+    div.setAttribute("title", "generated title"); // when we try to print capital Generated it does not give title.
+    div.setAttribute("body", "div");
+    div.style.backgroundColor = "green";
+    div.style.padding = "12px";
+    // div.innerText = "Javascript Learning";
+    const addText = document.createTextNode("Javascript Learning");
+    div.appendChild(addText);
+
+    // attached to documenet
+
+    document.body.appendChild(div);
+
+    const H1 = document.createElement("h1");
+    console.log(H1);
+    H1.className = "heading";
+    H1.id = Math.round(Math.random() * 10 + 1);
+    H1.setAttribute("title", "practice heading");
+    H1.style.backgroundColor = "red";
+    H1.style.color = "white";
+    H1.style.padding = "14px";
+    const h1 = document.createTextNode("Heading one");
+    H1.appendChild(h1);
+
+    document.body.appendChild(H1);
+
+    const p = document.createElement("p");
+    console.log(p);
+    p.className = "para";
+    p.id = "p1";
+    p.setAttribute("title", "paragraph");
+    p.style.backgroundColor = "black";
+    p.style.color = "white";
+    p.style.padding = "15px";
+    const para_p = document.createTextNode("para-one");
+    p.appendChild(para_p);
+    document.body.appendChild(p);
+  </script>
+</html>
