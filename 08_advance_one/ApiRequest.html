@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GitHub Profile Card</title>
+    <style>
+      body {
+        background-color: #212121;
+        color: white;
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      .card {
+        background-color: #2c2c2c;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        text-align: center;
+        width: 300px;
+      }
+
+      .card img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        margin-bottom: 10px;
+      }
+
+      .btn {
+        background-color: #4caf50;
+        border: none;
+        color: white;
+        padding: 10px 15px;
+        margin: 10px 5px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .btn:hover {
+        background-color: #45a049;
+      }
+
+      .info {
+        margin-top: 15px;
+        text-align: left;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card" id="card">
+      <img id="avatar" src="" alt="GitHub Avatar" />
+      <h2 id="name">GitHub User</h2>
+      <button class="btn" id="showFollowers">Show Followers</button>
+      <button class="btn" id="showDetails">Show All Details</button>
+      <div class="info" id="info"></div>
+    </div>
+
+    <script>
+      const requestUrl = "https://api.github.com/users/hiteshchoudhary";
+      const xhr = new XMLHttpRequest();
+      xhr.open("GET", requestUrl);
+
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+          const data = JSON.parse(this.responseText);
+
+          // Set avatar and name
+          document.getElementById("avatar").src = data.avatar_url;
+          document.getElementById("name").textContent = data.name || data.login;
+
+          // Add event listeners
+          document
+            .getElementById("showFollowers")
+            .addEventListener("click", function () {
+              document.getElementById(
+                "info"
+              ).innerHTML = `<strong>Followers:</strong> ${data.followers}`;
+            });
+
+          document
+            .getElementById("showDetails")
+            .addEventListener("click", function () {
+              document.getElementById("info").innerHTML = `
+              <p><strong>Name:</strong> ${data.name}</p>
+              <p><strong>Username:</strong> ${data.login}</p>
+              <p><strong>Location:</strong> ${data.location}</p>
+              <p><strong>Bio:</strong> ${data.bio}</p>
+              <p><strong>Followers:</strong> ${data.followers}</p>
+              <p><strong>Following:</strong> ${data.following}</p>
+              <p><strong>Public Repos:</strong> ${data.public_repos}</p>
+            `;
+            });
+        }
+      };
+
+      xhr.send();
+    </script>
+  </body>
+</html>
+
+<!-- // const requestUrl = "https://api.github.com/users/hiteshchoudhary"; 
+ // const xhr = new XMLHttpRequest();
+  // xhr.open("GET", requestUrl); 
+  //xhr.onreadystatechange = function () {
+   // console.log(xhr.readyState);
+    // if (xhr.readyState === 4) {
+     // const data = JSON.parse(this.responseText); 
+     // console.log(typeof data); 
+     // console.log(data.followers); 
+     // }
+      // };
+       // xhr.send(); -->
